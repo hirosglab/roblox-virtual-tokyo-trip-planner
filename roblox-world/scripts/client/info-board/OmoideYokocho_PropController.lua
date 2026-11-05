@@ -1,5 +1,5 @@
 -- ============================================================
--- 思い出横丁エリア：提灯時間差出現スクリプト（PointLight制御対応版）
+-- 思い出横丁エリア：提灯時間差出現スクリプト（X方向およびZ方向のマージン個別調整版）
 -- 配置場所: StarterPlayer -> StarterPlayerScripts -> LocalScript
 -- ============================================================
 
@@ -10,7 +10,6 @@ local TweenService = game:GetService("TweenService")
 local LocalPlayer = Players.LocalPlayer
 
 -- 演出の調整パラメータ
-local TRIGGER_DISTANCE = 40  -- 反応する距離（studs）
 local DELAY_TIME = 0.25      -- 各ステップ間の待ち時間（秒）
 local TWEEN_TIME = 0.35      -- ポップアップにかかる時間（秒）
 
@@ -93,7 +92,6 @@ local isAnimating = false
 local function setPropLightEnabled(prop, enabled)
 	if not prop then return end
 
-	-- Lightクラス（PointLight, SurfaceLight, SpotLightなど）を検索してON/OFF
 	for _, child in ipairs(prop:GetDescendants()) do
 		if child:IsA("Light") then
 			child.Enabled = enabled
@@ -125,7 +123,7 @@ local function hideAllLanterns()
 	for _, prop in ipairs(allProps) do
 		if prop and originalData[prop] then
 			setPropTransparency(prop, 1)
-			setPropLightEnabled(prop, false) -- ★ ライトを消灯
+			setPropLightEnabled(prop, false)
 
 			if prop:IsA("Model") then
 				prop:ScaleTo(originalData[prop].Scale)
@@ -161,16 +159,15 @@ end
 -- ------------------------------------------------------------
 local popTweenInfo = TweenInfo.new(
 	TWEEN_TIME,
-	Enum.EasingStyle.Back,   -- 弾むイージング
+	Enum.EasingStyle.Back,
 	Enum.EasingDirection.Out
 )
 
 local function animatePopIn(prop)
 	if not prop or not originalData[prop] then return end
 
-	-- 表示状態にし、ライトを点灯させる
 	setPropTransparency(prop, 0)
-	setPropLightEnabled(prop, true) -- ★ ライトを点灯
+	setPropLightEnabled(prop, true)
 
 	if prop:IsA("Model") then
 		local origCF = originalData[prop].CFrame
@@ -223,78 +220,71 @@ end
 local function showLanternSequence()
 	isAnimating = true
 
-	-- 【Step 1】 Prop_Lantern_Red_01 & Prop_Lantern_Red_02
 	playPopSound()
 	animatePopIn(p_Lantern1)
 	animatePopIn(p_Lantern2)
 	task.wait(DELAY_TIME)
 
-	-- 【Step 2】 Prop_Lantern_Red_03 & Prop_Lantern_Red_04
 	playPopSound()
 	animatePopIn(p_Lantern3)
 	animatePopIn(p_Lantern4)
 	task.wait(DELAY_TIME)
 
-	-- 【Step 3】 Prop_Lantern_Red_05 & Prop_Lantern_Red_06
 	playPopSound()
 	animatePopIn(p_Lantern5)
 	animatePopIn(p_Lantern6)
 	task.wait(DELAY_TIME)
 
-	-- 【Step 4】 Prop_Lantern_Red_07 & Prop_Lantern_Red_08
 	playPopSound()
 	animatePopIn(p_Lantern7)
 	animatePopIn(p_Lantern8)
 
-	-- ★ 8個すべて表示・点灯完了後に居酒屋歓迎SEを再生
 	playWelcomeSound()
 
 	isAnimating = false
 end
 
 -- ============================================================
--- ★ 自分自身（LocalPlayer）との距離と「前方」の判定関数
+-- ★ X方向・Z方向のマージンを個別に調整した範囲判定関数
 -- ============================================================
-local function checkPlayerInFront()
+local function checkPlayerInArea()
 	local char = LocalPlayer.Character
 	if char and char:FindFirstChild("HumanoidRootPart") then
 		local hrp = char.HumanoidRootPart
-		local boardPivot = board:GetPivot()
-		local boardPos = boardPivot.Position
+		local pPos = hrp.Position
 
-		-- 1. まず距離のチェック（40 studs以内か）
-		local dist = (hrp.Position - boardPos).Magnitude
-		if dist > TRIGGER_DISTANCE then
-			return false
+		-- 対象の基準ポイントリスト（思い出横丁関連）
+		local targetPoints = {
+			Vector3.new(-90.93, 7, -52.5), -- InfoBoard_02_OmoideYokocho
+			Vector3.new(-94, 12, -41),       -- Prop_Lantern_Red_07
+			Vector3.new(-87, 12, -52),       -- Prop_Lantern_Red_08
+			Vector3.new(-74, 12, -30),       -- Prop_Lantern_Red_01
+			Vector3.new(-68, 12, -43)        -- Prop_Lantern_Red_02
+		}
+
+		local minX, maxX = math.huge, -math.huge
+		local minZ, maxZ = math.huge, -math.huge
+
+		for _, pt in ipairs(targetPoints) do
+			if pt.X < minX then minX = pt.X end
+			if pt.X > maxX then maxX = pt.X end
+			if pt.Z < minZ then minZ = pt.Z end
+			if pt.Z > maxZ then maxZ = pt.Z end
 		end
 
-		-- 【追加】近づきすぎたとき（例：8 studs以内）は、角度に関わらず正面にいるとみなして消えないようにする
-		if dist <= 15 then
+		-- 【調整用マージン】
+		-- X方向（新宿東口側：(-79.93) や 歌舞伎町側：(-101.93) への広がり）のマージンを狭めて、隣の看板前での誤反応を防ぎます
+		local MARGIN_X = 3   -- X方向のマージンを小さくする（例: 10 から 3 へ縮小）
+		local MARGIN_Z = 3   -- Z方向の奥行きマージン
+
+		minX = minX - MARGIN_X
+		maxX = maxX + MARGIN_X
+		minZ = minZ - MARGIN_Z
+		maxZ = maxZ + MARGIN_Z
+
+		if pPos.X >= minX and pPos.X <= maxX and pPos.Z >= minZ and pPos.Z <= maxZ then
 			return true
 		end
-
-		-- 2. 看板の正面方向ベクトル
-		local boardForward = -boardPivot.LookVector
-
-		-- 3. 看板からプレイヤーへのベクトル
-		local toPlayer = (hrp.Position - boardPos)
-
-		-- 高低差（Y軸）の影響を無視して、水平方向（XZ平面）だけで判定
-		toPlayer = Vector3.new(toPlayer.X, 0, toPlayer.Z)
-		boardForward = Vector3.new(boardForward.X, 0, boardForward.Z)
-
-		if toPlayer.Magnitude == 0 or boardForward.Magnitude == 0 then
-			return false
-		end
-
-		toPlayer = toPlayer.Unit
-		boardForward = boardForward.Unit
-
-		-- 4. 内積を計算
-		local dot = boardForward:Dot(toPlayer)
-
-		-- 離れている時は厳め（0.9 = 約25度以内）の視野角で隣の看板への誤反応を防ぐ
-		return dot > 0.9
 	end
 	return false
 end
@@ -303,15 +293,15 @@ end
 -- 判定ループ（Heartbeat）
 -- ------------------------------------------------------------
 RunService.Heartbeat:Connect(function()
-	local isInFront = checkPlayerInFront()
+	local isInArea = checkPlayerInArea()
 
-	if isInFront and not isNear then
+	if isInArea and not isNear then
 		isNear = true
 		if not isAnimating then
 			showLanternSequence()
 		end
 
-	elseif not isInFront and isNear then
+	elseif not isInArea and isNear then
 		isNear = false
 		hideAllLanterns()
 	end
