@@ -13,19 +13,37 @@ links:
   - "./planning/tokyo-trip-plan-2026.md"
   - "./roblox-world/object-deployment-plan.md"
   - "./roblox-world/room-layout-design.md"
+  - "./roblox-world/room-floor-design-spec.md"
   - "./roblox-world/objects/room-spatial-dimension-spec.md"
   - "./roblox-world/objects/room-wall-design-spec.md"
   - "./roblox-world/objects/info-board-featured-spots.md"
   - "./roblox-world/objects/info-board-specific-shops.md"
+  - "./roblox-world/objects/info-board-accommodation.md"
   - "./roblox-world/objects/workspace-hierarchy.md"
+  - "./roblox-world/objects/zone-c-omoideyokocho-design.md"
+  - "./roblox-world/objects/zone-c-tokyo-central-station-design.md"
+  - "./roblox-world/objects/zone-c-ShinbashiGuardUnderpass-design.md"
+  - "./roblox-world/objects/zone-c-tsukiji-outer-market-area-design.md"
   - "./roblox-world/scripts/client/info-board/ShopBoard_PopUpController.lua"
+  - "./roblox-world/scripts/client/info-board/OmoideYokocho_PropController.lua"
+  - "./roblox-world/scripts/client/info-board/ShinbashiGuardUnderpass_PropController.lua"
+  - "./roblox-world/scripts/client/info-board/Tsukiji_PropController.lua"
   - "./roblox-world/docs/learning/2026-08-16-lua-learning-log.md"
-description: "Virtual Tokyo Trip Planner プロジェクト全体のドキュメント構造・相対パス・各ファイルの役割を網羅したメインインデックス"
+  - "./roblox-world/docs/learning/2026-09-17-blender_learning_log.md"
+  - "./roblox-world/docs/learning/2026-09-21-blender_learning_log.md"
+  - "./roblox-world/docs/learning/2026-09-22-blender_learning_log.md"
+  - "./roblox-world/docs/learning/2026-09-26-blender_learning_log.md"
+  - "./roblox-world/docs/learning/2026-09-29-blender_learning_log.md"
+  - "./roblox-world/docs/learning/2026-09-30-blender_learning_log.md"
+  - "./roblox-world/docs/learning/2026-10-19-blender_learning_log.md"
+  - "./roblox-world/docs/learning/2026-10-20-blender_learning_log.md"
+  - "./roblox-world/docs/learning/2026-10-30-blender_learning_log.md"
+description: "Virtual Tokyo Trip Planner プロジェクトのドキュメント構造、相対パス、および各ファイルの役割をまとめたメインインデックス"
 ---
 
 # Virtual Tokyo Trip Planner - Project Index
 
-本プロジェクトにおける全ドキュメントの構造、依存関係（相対パス）、および各ファイルの役割をまとめたメインインデックスです。
+本プロジェクトのドキュメント構造、依存関係（相対パス）、および各ファイルの役割をまとめたメインインデックスです。
 
 ---
 
@@ -36,25 +54,49 @@ description: "Virtual Tokyo Trip Planner プロジェクト全体のドキュメ
     ├─ index.md (本ファイル)
     ├─ planning/
     │  ├─ presentation-schedule.md
-    │  ├─ tokyo-trip-plan-2026.md
-    │  └─ milestone-1-progress.md
+    │  ├─ milestone-1-progress.md
+    │  └─ tokyo-trip-plan-2026.md
     └─ roblox-world/
        ├─ assets/
+       │  ├─ accommodations-boards-design.svg
+       │  ├─ omoideyokocho-outer-market-elevation-spec.svg
+       │  ├─ omoideyokocho-outer-market-plan-spec.svg
        │  ├─ room-layout-diagram.svg
-       │  └─ specific-spot-shop-boards-design.svg
-       ├─ scripts/
-       │  └─ client/
-       │     └─ info-board/
-       │        └─ ShopBoard_PopUpController.lua
+       │  ├─ specific-spot-shop-boards-design.svg
+       │  ├─ tokyo-central-station-elevation-spec.svg
+       │  ├─ tokyo-central-station-plan-spec.svg
+       │  ├─ tsukiji-outer-market-elevation-spec.svg
+       │  └─ tsukiji-outer-market-plan-spec.svg
        ├─ docs/
        │  └─ learning/
-       │     └─ 2026-08-16-lua-learning-log.md
+       │     ├─ 2026-08-16-lua-learning-log.md
+       │     ├─ 2026-09-17-blender_learning_log.md
+       │     ├─ 2026-09-21-blender_learning_log.md
+       │     ├─ 2026-09-22-blender_learning_log.md
+       │     ├─ 2026-09-26-blender_learning_log.md
+       │     ├─ 2026-09-29-blender_learning_log.md
+       │     ├─ 2026-09-30-blender_learning_log.md
+       │     ├─ 2026-10-19-blender_learning_log.md
+       │     ├─ 2026-10-20-blender_learning_log.md
+       │     └─ 2026-10-30-blender_learning_log.md
        ├─ objects/
+       │  ├─ info-board-accommodation.md
        │  ├─ info-board-featured-spots.md
        │  ├─ info-board-specific-shops.md
        │  ├─ room-spatial-dimension-spec.md
        │  ├─ room-wall-design-spec.md
-       │  └─ workspace-hierarchy.md
+       │  ├─ workspace-hierarchy.md
+       │  ├─ zone-c-omoideyokocho-design.md
+       │  ├─ zone-c-ShinbashiGuardUnderpass-design.md
+       │  ├─ zone-c-tokyo-central-station-design.md
+       │  └─ zone-c-tsukiji-outer-market-area-design.md
+       ├─ scripts/
+       │  └─ client/
+       │     └─ info-board/
+       │        ├─ OmoideYokocho_PropController.lua
+       │        ├─ ShinbashiGuardUnderpass_PropController.lua
+       │        ├─ ShopBoard_PopUpController.lua
+       │        └─ Tsukiji_PropController.lua
        ├─ object-deployment-plan.md
        ├─ room-floor-design-spec.md
        └─ room-layout-design.md
@@ -63,103 +105,87 @@ description: "Virtual Tokyo Trip Planner プロジェクト全体のドキュメ
 
 ## 📜 ドキュメント詳細とナビゲーション
 
-### 1. プロジェクトルート (Root)
+### 1. プロジェクトルート
 
 * **README.md** (`./README.md`)
   * **役割**: プロジェクトの概要、目的、リポジトリの基本情報を記述するメイン説明書。
 * **index.md** (`./index.md`)
-  * **役割**: 全ファイルの相互リンクと構造を管理するインデックスドキュメント。
-
----
+  * **役割**: 全ファイルの構造と主要ドキュメントへのナビゲーションを管理するインデックス。
 
 ### 2. 旅行計画 (`planning/`)
 
 * **presentation-schedule.md** (`./planning/presentation-schedule.md`)
-  * **役割**: プレゼンテーションのマイルストーン（8月末、9月末、10月中頃）に応じたRobloxオブジェクトおよび機能の開発スケジュール。
+  * **役割**: Robloxプロジェクトの3つのプレゼンテーション・マイルストーンと、各段階の開発目標・アクション項目を管理するスケジュール。
 * **milestone-1-progress.md** (`./planning/milestone-1-progress.md`)
-  * **役割**: Milestone 1（8月末の第一回プレゼンテーション）に向けた進捗管理票。
+  * **役割**: 第一回プレゼンテーションに向けた案内板、ワールド環境、3Dオブジェクト等の進捗管理票。
 * **tokyo-trip-plan-2026.md** (`./planning/tokyo-trip-plan-2026.md`)
-  * **役割**: 2026年の東京旅行計画（第1回・第2回）の基本日程、宿泊先、飲食店、観光スポット一覧。
-
----
+  * **役割**: 2026年の東京旅行（第1回・第2回）の日程、宿泊先、飲食店、観光スポットをまとめた基本計画。
 
 ### 3. Roblox ワールド設計 (`roblox-world/`)
 
+#### アセット (`assets/`)
+
 * **assets/** (`./roblox-world/assets/`)
-  * **役割**: ワールド設計に使用する図面・SVG 等の静的アセットを格納します。
-  * **現在のアセット**:
-    * `room-layout-diagram.svg` (`./roblox-world/assets/room-layout-diagram.svg`)
-    * `specific-spot-shop-boards-design.svg` (`./roblox-world/assets/specific-spot-shop-boards-design.svg`)
+  * **役割**: ワールド、案内板、各エリアの設計図などのSVGアセットを格納します。
+  * **アセット一覧**:
+    * `accommodations-boards-design.svg` — 宿泊施設案内板のデザイン。
+    * `omoideyokocho-outer-market-elevation-spec.svg` / `omoideyokocho-outer-market-plan-spec.svg` — 思い出横丁エリアの立面図・平面図。
+    * `room-layout-diagram.svg` — ルーム全体のレイアウト図。
+    * `specific-spot-shop-boards-design.svg` — 店舗・施設案内板のデザイン。
+    * `tokyo-central-station-elevation-spec.svg` / `tokyo-central-station-plan-spec.svg` — 東京中央駅エリアの立面図・平面図。
+    * `tsukiji-outer-market-elevation-spec.svg` / `tsukiji-outer-market-plan-spec.svg` — 築地場外市場エリアの立面図・平面図。
 
-* **scripts/** (`./roblox-world/scripts/`)
-  * **役割**: Roblox 用の Lua スクリプトを格納するディレクトリ（クライアント/サーバ/モジュール別に整理）。
-  * **追加されたスクリプト**:
-    * `client/info-board/ShopBoard_PopUpController.lua` — StarterPlayerScripts に配置する LocalScript。ShopBoard の Center_Display_Surface に近づいたときに Popup を表示、離れたときに非表示にするクライアント側ロジック。
-
-* **docs/** (`./roblox-world/docs/`)
-  * **役割**: Roblox開発に関する学習ログ、知見、技術ノート、トラブルシューティング等を格納するドキュメントリポジトリ。
-  * **learning/** (`./roblox-world/docs/learning/`)
-    * **2026-08-16-lua-learning-log.md** — Lua 基本文法の学習ログ。汎用 for 文、`ipairs`、`GetDescendants`、文字列操作、`WaitForChild`、ガード節、距離計算、毎フレーム処理の実装パターンなど。
+#### 計画・空間仕様
 
 * **object-deployment-plan.md** (`./roblox-world/object-deployment-plan.md`)
-  * **役割**: `tokyo-trip-plan-2026.md` の旅行計画をRoblox空間上のオブジェクト（案内板、3Dモデル、プロップ）へマッピング・配置する展開プラン。
-  * **主要関連リンク**:
-    * 旅行マスタープラン: `../planning/tokyo-trip-plan-2026.md`
-    * 空間レイアウト設計: `./room-layout-design.md`
-    * 主要観光スポット案内板: `./objects/info-board-featured-spots.md`
-    * 飲食店・ショップ案内板: `./objects/info-board-specific-shops.md`
-
+  * **役割**: 旅行計画をRoblox空間上の床材、案内板、ランドマーク、3Dモデル、プロップへ対応付ける配置計画。
+  * **主要関連リンク**: `../planning/tokyo-trip-plan-2026.md`、`./room-layout-design.md`、`./room-floor-design-spec.md`、`./objects/` 配下の案内板・ゾーン仕様書。
 * **room-layout-design.md** (`./roblox-world/room-layout-design.md`)
-  * **役割**: Robloxワールド空間全体（円形ルーム構造、スポーン地点、放射状ゾーン配置）の空間デザイン仕様書。
-  * **主要関連リンク**:
-    * 設計図面（アセット）: `./assets/room-layout-diagram.svg`
-    * オブジェクト配置計画: `./object-deployment-plan.md`
-    * 詳細な空間座標・寸法計算: `./objects/room-spatial-dimension-spec.md`
-
+  * **役割**: 円形ルーム構造、スポーン地点、放射状ゾーン配置など、Robloxワールド全体の空間デザインを定義します。
 * **room-floor-design-spec.md** (`./roblox-world/room-floor-design-spec.md`)
-  * **役割**: Robloxワールド空間における3つの階層シリンダー床パーツの立体構造、寸法、材質、および色設定の仕様書。
-  * **主要関連リンク**:
-    * 空間レイアウト設計: `./room-layout-design.md`
-    * 詳細な空間座標・寸法計算: `./objects/room-spatial-dimension-spec.md`
-
+  * **役割**: 3つの階層シリンダー床パーツの構造、寸法、材質、色を定義する仕様書。
 * **objects/room-spatial-dimension-spec.md** (`./roblox-world/objects/room-spatial-dimension-spec.md`)
-  * **役割**: Robloxワールドの3次元空間設計書。同心円シリンダーゾーン（ZONE A/B/C）の寸法、12面体外壁の位置・回転角度計算、および Featured Spots 案内板の配置計算式を定義。
-  * **主要関連リンク**:
-    * ハイレベル空間レイアウト: `../room-layout-design.md`
-    * 主要観光スポット案内板配置根拠: `./info-board-featured-spots.md`
-    * 飲食店・ショップ案内板配置参照: `./info-board-specific-shops.md`
-    * 外壁設計詳細: `./room-wall-design-spec.md`
-
+  * **役割**: Zone A/B/C の寸法や外壁・案内板の配置座標など、ワールドの空間計算をまとめた仕様書。
 * **objects/room-wall-design-spec.md** (`./roblox-world/objects/room-wall-design-spec.md`)
-  * **役割**: メインウォール拡幅（76 studs）およびサブウォール幅狭アクセント化（36 studs）に伴う寸法・トランスフォーム再計算、材質・カラー定義の詳細仕様書。
-  * **主要関連リンク**:
-    * ハイレベル空間レイアウト: `../room-layout-design.md`
-    * 空間座標・寸法計算の基準: `./room-spatial-dimension-spec.md`
-    * 主要観光スポット案内板配置: `./info-board-featured-spots.md`
-    * ワークスペース階層: `./workspace-hierarchy.md`
-
-* **objects/info-board-featured-spots.md** (`./roblox-world/objects/info-board-featured-spots.md`)
-  * **役割**: 主要観光スポット（Featured Sightseeing Spots）専用案内板の3Dパーツ構造、材質・カラー定義、および SurfaceGui (1024x768) レイアウト仕様書。
-  * **主要関連リンク**:
-    * オブジェクト配置計画: `../object-deployment-plan.md`
-    * 空間座標・配置計算の根拠: `./room-spatial-dimension-spec.md`
-    * 外壁配置の詳細: `./room-wall-design-spec.md`
-
-* **objects/info-board-specific-shops.md** (`./roblox-world/objects/info-board-specific-shops.md`)
-  * **役割**: 東京の飲食店・ショップ・レストラン等を紹介する案内板の3Dパーツ構造、材質・カラー定義、および SurfaceGui レイアウト仕様書。
-  * **スクリプト連携**: `../scripts/client/info-board/ShopBoard_PopUpController.lua` により、プレイヤー接近時のポップアップ表示がクライアント側で制御されます。
-  * **主要関連リンク**:
-    * オブジェクト配置計画: `../object-deployment-plan.md`
-    * 旅行マスタープラン: `../../planning/tokyo-trip-plan-2026.md`
-    * 空間座標・配置計算の根拠: `./room-spatial-dimension-spec.md`
-    * ポップアップ制御スクリプト: `../scripts/client/info-board/ShopBoard_PopUpController.lua`
-
+  * **役割**: メインウォール・サブウォールの寸法、配置、トランスフォーム、材質・色を定義する仕様書。
 * **objects/workspace-hierarchy.md** (`./roblox-world/objects/workspace-hierarchy.md`)
-  * **役割**: Robloxワールド内の全オブジェクトのワークスペース階層構造、命名規約、パーツの親子関係（フォルダ分類）を定義したリファレンス。
-  * **主要関連リンク**:
-    * 主要観光スポット案内板: `./info-board-featured-spots.md`
-    * 飲食店・ショップ案内板: `./info-board-specific-shops.md`
-    * 外壁設計詳細: `./room-wall-design-spec.md`
+  * **役割**: Roblox Workspace内のオブジェクト階層、命名規約、パーツの親子関係を定義するリファレンス。
+
+#### 案内板仕様 (`objects/`)
+
+* **info-board-featured-spots.md** (`./roblox-world/objects/info-board-featured-spots.md`)
+  * **役割**: 主要観光スポット案内板の3Dパーツ構造、材質・カラー、およびSurfaceGuiレイアウトを定義します。
+* **info-board-specific-shops.md** (`./roblox-world/objects/info-board-specific-shops.md`)
+  * **役割**: 飲食店・ショップ等の案内板の3Dパーツ構造、材質・カラー、SurfaceGuiレイアウトを定義します。店舗ボードのポップアップ制御スクリプトとも連携します。
+* **info-board-accommodation.md** (`./roblox-world/objects/info-board-accommodation.md`)
+  * **役割**: 宿泊施設案内板の3Dパーツ構造、色・材質、ホテル情報や施設アイコンを含むSurfaceGuiレイアウトを定義します。
+
+#### Zone C エリア設計 (`objects/`)
+
+* **zone-c-omoideyokocho-design.md** (`./roblox-world/objects/zone-c-omoideyokocho-design.md`)
+  * **役割**: InfoBoard_02 思い出横丁前の空間、赤提灯プロップの配置、接近時の出現・点灯演出を定義します。
+* **zone-c-tokyo-central-station-design.md** (`./roblox-world/objects/zone-c-tokyo-central-station-design.md`)
+  * **役割**: InfoBoard_10 東京中央駅前の空間と青色ランタンプロップ群の配置・グループ出現演出を定義します。
+* **zone-c-ShinbashiGuardUnderpass-design.md** (`./roblox-world/objects/zone-c-ShinbashiGuardUnderpass-design.md`)
+  * **役割**: InfoBoard_12 新橋ガード下前の空間、赤提灯プロップの配置、接近時の出現・点灯演出を定義します。
+* **zone-c-tsukiji-outer-market-area-design.md** (`./roblox-world/objects/zone-c-tsukiji-outer-market-area-design.md`)
+  * **役割**: InfoBoard_13 築地場外市場前の空間、寿司プロップの配置、歩行動線に沿った出現演出を定義します。
+
+#### スクリプト (`scripts/`)
+
+* **scripts/** (`./roblox-world/scripts/`)
+  * **役割**: Robloxクライアント側のLuaスクリプトを格納します。
+  * **client/info-board/ShopBoard_PopUpController.lua** — 店舗案内板に接近した際のポップアップ表示を制御するLocalScript。
+  * **client/info-board/OmoideYokocho_PropController.lua** — 思い出横丁の赤提灯の出現・点灯・サウンド演出を制御するLocalScript。
+  * **client/info-board/ShinbashiGuardUnderpass_PropController.lua** — 新橋ガード下の赤提灯の出現・点灯・サウンド演出を制御するLocalScript。
+  * **client/info-board/Tsukiji_PropController.lua** — 築地の寿司プロップの順次出現アニメーションを制御するLocalScript。
+
+#### 学習ログ (`docs/learning/`)
+
+* **docs/learning/** (`./roblox-world/docs/learning/`)
+  * **役割**: Roblox開発に関する学習ログ、技術ノート、知見を格納します。
+  * `2026-08-16-lua-learning-log.md` — Luaの基本構文、テーブル・ループ、Roblox API等の学習ログ。
+  * `2026-09-17-blender_learning_log.md`、`2026-09-21-blender_learning_log.md`、`2026-09-22-blender_learning_log.md`、`2026-09-26-blender_learning_log.md`、`2026-09-29-blender_learning_log.md`、`2026-09-30-blender_learning_log.md`、`2026-10-19-blender_learning_log.md`、`2026-10-20-blender_learning_log.md`、`2026-10-30-blender_learning_log.md` — Blenderでの制作・モデリング学習ログ（日付順）。
 
 ---
 
@@ -170,3 +196,4 @@ description: "Virtual Tokyo Trip Planner プロジェクト全体のドキュメ
 * **同じフォルダ内のファイルを参照する場合**: `./filename.md`
 * **1つ上のフォルダに戻って参照する場合**: `../filename.md` または `../folder/filename.md`
 * **ルート(`index.md`)から配下を参照する場合**: `./planning/...` や `./roblox-world/...`
+
