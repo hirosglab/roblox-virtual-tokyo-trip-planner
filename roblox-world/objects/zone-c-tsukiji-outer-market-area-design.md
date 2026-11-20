@@ -15,108 +15,108 @@ links:
   - "./info-board-featured-spots.md"
   - "./info-board-specific-shops.md"
   - "./workspace-hierarchy.md"
-description: "Zone C の InfoBoard_13_TsukijiOuterMarket 前地区における立体空間レイアウト、案内板立面・平面仕様、および寿司プロップ等の3D配置トランスフォーム・動的出現演出仕様書"
+description: "Spatial layout, elevation and plan specifications, and 3D placement transforms and dynamic appearance animation specs for sushi props and surrounding objects in front of InfoBoard_13_TsukijiOuterMarket in Zone C."
 ---
 
 # Roblox Zone C Tsukiji Outer Market Area Design Spec
 
-本ドキュメントは room-spatial-dimension-spec.md および info-board-featured-spots.md に基づき、Zone C の MainWall_04（南側）に位置する **InfoBoard_13_TsukijiOuterMarket** 前地区の立体空間デザイン、立面・平面レイアウト仕様、ならびに周辺に配置する3Dフードプロップ（寿司オブジェクト等）の配置トランスフォームおよび動的出現アニメーション制御仕様を定義する。
+Based on `room-spatial-dimension-spec.md` and `info-board-featured-spots.md`, this document defines the 3D spatial design, elevation and plan layout specifications, and placement transforms and dynamic appearance animation control specifications for surrounding 3D food props (such as sushi objects) in the area in front of **InfoBoard_13_TsukijiOuterMarket** located on `MainWall_04` (south side) in Zone C.
 
 ## 🏛️ Area Overview & Spatial Concept
 
-InfoBoard_13_TsukijiOuterMarket 前地区は、築地場外市場の活気ある海鮮・寿司カルチャーを体験・視認できる Zone C の主要展示エリアである。
-壁面に備え付けられた主要観光案内板（InfoBoard_13）を中心に、前面の Zone C 床面（Y = 0.2 studs）および案内板上方（Y = 15.0 studs）に立体的なフードプロップ（トロ、タマゴ、サーモンの各種寿司 3D Model）を展開する。
-プレイヤーが案内板の正面方向へ接近した際、進行方向および視線に沿ってインタラクティブに寿司プロップが浮き出る演出を構築し、没入感を高める設計とする。
+The area in front of `InfoBoard_13_TsukijiOuterMarket` is a main exhibition zone in Zone C where visitors can experience and view the vibrant seafood and sushi culture of the Tsukiji Outer Market.
+Centered around the featured sightseeing information board (`InfoBoard_13`) mounted on the wall, 3D food props (various sushi 3D Models: Toro, Tamago, and Salmon) are deployed on the Zone C floor in front (`Y = 0.2 studs`) and above the information board (`Y = 15.0 studs`).
+When a player approaches the front of the information board, the design builds an interactive effect in which the sushi props pop up along the movement direction and line of sight, enhancing immersion.
 
 ## 📐 Elevation & Plan Layout Specifications
 
-本エリアの立面および平面の構成・寸法仕様は、アセットとして管理されている以下の SVG 設計図面に準拠する。
+The composition and dimensional specifications for elevation and plan in this area conform to the following SVG design drawings managed as assets.
 
-### 1. 立面仕様 (Elevation Spec)
-- **参照アセット**: tsukiji-outer-market-elevation-spec.svg (./roblox-world/assets/tsukiji-outer-market-elevation-spec.svg)
-  ![Roblox Tsukiji Outer Market Elevation Diagram](../assets/tsukiji-outer-market-elevation-spec.svg)
-- **主要構造**:
-  * **MainWall_04**: 高さ 30.0 studs / 厚み 2.0 studs / 木目調仕上げ
-  * **InfoBoard_13_TsukijiOuterMarket**: 
-    * Wall Mount 中心高さ: Y = 7.00 studs
-    * Size: 12.0, 9.0, 0.4 studs
-    * 表面 Display_Surface (SurfaceGui 1024x768): 左側エリア解説文 / 右側場外市場ビジュアル画像
-  * **Floor Placement Level**: Zone C 床面 Top Elevation Y = 0.20 studs （床面プロップ設置基準面: Y = 4.00 studs / 空中プロップ設置基準面: Y = 15.00 studs）
+### 1. Elevation Spec
+- **Reference Asset**: `tsukiji-outer-market-elevation-spec.svg` (`./roblox-world/assets/tsukiji-outer-market-elevation-spec.svg`)
+  ![Roblox Tsukiji Outer Market Elevation Diagram](../assets/tsukiji-outer-market-elevation-spec.svg)`
+- **Key Structures**:
+  * **MainWall_04**: Height `30.0 studs` / Thickness `2.0 studs` / Wood-grain finish
+  * **InfoBoard_13_TsukijiOuterMarket**:
+    * Wall Mount center height: `Y = 7.00 studs`
+    * Size: `12.0, 9.0, 0.4 studs`
+    * Front `Display_Surface` (`SurfaceGui 1024x768`): Left area description text / Right outer market visual image
+  * **Floor Placement Level**: Zone C floor Top Elevation `Y = 0.20 studs` (Floor prop placement reference plane: `Y = 4.00 studs` / Aerial prop placement reference plane: `Y = 15.00 studs`)
 
-### 2. 平面仕様 (Plan Spec)
-- **参照アセット**: tsukiji-outer-market-plan-spec.svg (./roblox-world/assets/tsukiji-outer-market-plan-spec.svg)
-![Roblox Tsukiji Outer Market Plan Diagram](../assets/tsukiji-outer-market-plan-spec.svg)
-- **レイアウト軸**:
-  * MainWall_04 壁面位置: Z = 107.00 studs
-  * InfoBoard_13 配置位置: X = 22.00 studs, Z = 105.00 studs
-  * 展示プロップ群展開領域: X = 15.0 ~ 37.0 studs, Z = 68.0 ~ 94.0 studs （InfoBoard_13 前方の歩行・視認ゾーン）
+### 2. Plan Spec
+- **Reference Asset**: `tsukiji-outer-market-plan-spec.svg` (`./roblox-world/assets/tsukiji-outer-market-plan-spec.svg`)
+  ![Roblox Tsukiji Outer Market Plan Diagram](../assets/tsukiji-outer-market-plan-spec.svg)`
+- **Layout Axes**:
+  * `MainWall_04` wall position: `Z = 107.00 studs`
+  * `InfoBoard_13` placement position: `X = 22.00 studs, Z = 105.00 studs`
+  * Exhibition prop group deployment area: `X = 15.0 ~ 37.0 studs, Z = 68.0 ~ 94.0 studs` (Walking and viewing zone in front of `InfoBoard_13`)
 
 ## 🍣 3D Object & Prop Deployment Transform Table
 
-InfoBoard_13 前地区の床面（Y = 4.0 studs）および案内板上方（Y = 15.0 studs）に調整・配置された 3D オブジェクト（寿司プロップ群）の座標一覧。
-Zone B 側（Z = 68.50）から InfoBoard 側（Z = 93.50）、および案内板上方（Z = 101.79 ~ 102.59）へと進行方向に沿って3列＋上方の順次出現シーケンスが組まれている。
+Coordinate list of 3D objects (sushi prop group) adjusted and placed on the floor (`Y = 4.0 studs`) and above the information board (`Y = 15.0 studs`) in the area in front of `InfoBoard_13`.
+A sequential appearance sequence of 3 rows plus an upper group is configured along the movement direction from the Zone B side (`Z = 68.50`) toward the InfoBoard side (`Z = 93.50`) and above the information board (`Z = 101.79 ~ 102.59`).
 
 ### Prop Placement Table
 
 | Prop Name / Object ID | Item Type / Description | Position (X, Y, Z) | Orientation (Rx, Ry, Rz) | Parent Folder / Workspace Hierarchy | Sequential Step |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Prop_Sushi_Toro_03 | Fatty Tuna / トロ (列1: Zone B側) | (34.20, 4.00, 82.50) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Toro_03 | Step 1 (同時) |
-| Prop_Sushi_Tamago_03 | Egg / タマゴ (列1: Zone B側) | (30.962, 4.00, 82.50) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Tamago_03 | Step 1 (同時) |
-| Prop_Sushi_Salmon_03 | Salmon / サーモン (列1: Zone B側) | (16.50, 4.00, 82.50) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Salmon_03 | Step 2 |
-| Prop_Sushi_Toro_02 | Fatty Tuna / トロ (列2: 中央) | (15.80, 4.00, 91.00) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Toro_02 | Step 3 (同時) |
-| Prop_Sushi_Tamago_02 | Egg / タマゴ (列2: 中央) | (119.40, 4.00, 91.00) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Tamago_02 | Step 3 (同時) |
-| Prop_Sushi_Salmon_02 | Salmon / サーモン (列2: 中央) | (34.50, 4.00, 91.00) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Salmon_02 | Step 4 |
-| Prop_Sushi_Toro_01 | Fatty Tuna / トロ (列3: 看板前) | (36.20, 4.00, 98.50) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Toro_01 | Step 5 (同時) |
-| Prop_Sushi_Tamago_01 | Egg / タマゴ (列3: 看板前) | (31.80, 4.00, 98.50) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Tamago_01 | Step 5 (同時) |
-| Prop_Sushi_Salmon_01 | Salmon / サーモン (列3: 看板前) | (18.50, 4.00, 98.50) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Salmon_01 | Step 6 |
-| Prop_Sushi_Toro_04 | Fatty Tuna / トロ (上方) | (30.04, 15.00, 101.79) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Toro_04 | Step 7 (同時) |
-| Prop_Sushi_Tamago_04 | Egg / タマゴ (上方) | (26.62, 15.00, 102.59) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Tamago_04 | Step 7 (同時) |
-| Prop_Sushi_Salmon_04 | Salmon / サーモン (上方) | (20.00, 15.00, 102.00) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Salmon_04 | Step 7 (同時) |
+| Prop_Sushi_Toro_03 | Fatty Tuna (Row 1: Zone B side) | (28, 4, 82.5) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Toro_03 | Step 1 (Simultaneous) |
+| Prop_Sushi_Tamago_03 | Egg (Row 1: Zone B side) | (24, 5, 82.5) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Tamago_03 | Step 1 (Simultaneous) |
+| Prop_Sushi_Salmon_03 | Salmon (Row 1: Zone B side) | (14.5, 4, 82.5) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Salmon_03 | Step 2 |
+| Prop_Sushi_Toro_02 | Fatty Tuna (Row 2: Center) | (15.5, 4, 91) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Toro_02 | Step 3 (Simultaneous) |
+| Prop_Sushi_Tamago_02 | Egg (Row 2: Center) | (19.5, 4, 91) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Tamago_02 | Step 3 (Simultaneous) |
+| Prop_Sushi_Salmon_02 | Salmon (Row 2: Center) | (29.5, 4, 91) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Salmon_02 | Step 4 |
+| Prop_Sushi_Toro_01 | Fatty Tuna (Row 3: In front of board) | (33, 4, 98.5) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Toro_01 | Step 5 (Simultaneous) |
+| Prop_Sushi_Tamago_01 | Egg (Row 3: In front of board) | (29, 4, 98.5) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Tamago_01 | Step 5 (Simultaneous) |
+| Prop_Sushi_Salmon_01 | Salmon (Row 3: In front of board) | (19.5, 4, 98.5) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Salmon_01 | Step 6 |
+| Prop_Sushi_Toro_04 | Fatty Tuna (Upper) | (30, 12, 101.5) | (-19.47, 21.21, -9.12) | Workspace.Props.TsukijiArea / Prop_Sushi_Toro_04 | Step 7 (Simultaneous) |
+| Prop_Sushi_Tamago_04 | Egg (Upper) | (26.5, 12, 102.5) | (0, 0, 0) | Workspace.Props.TsukijiArea / Prop_Sushi_Tamago_04 | Step 7 (Simultaneous) |
+| Prop_Sushi_Salmon_04 | Salmon (Upper) | (20, 10, 104.5) | (-29.587, -32.674, 17.571) | Workspace.Props.TsukijiArea / Prop_Sushi_Salmon_04 | Step 7 (Simultaneous) |
 
 ## ⚡ Dynamic Appearance & Audio System Architecture
 
-本エリアのプロップ出現ギミックは、モバイル環境を含むマルチプレイ時のパフォーマンス最適化およびネットワーク負荷低減のため、クライアント制御（LocalScript）によって構築・実行される。
+To optimize performance in multiplayer environments including mobile devices and reduce network load, the prop appearance gimmick in this area is built and executed via client-side control (`LocalScript`).
 
-### 1. 検出およびトリガー制御 (前方・距離統合の個別判定)
-- **スクリプト配置**: StarterPlayer.StarterPlayerScripts 配下に LocalScript として配置。
-- **対象オブジェクト参照**: Workspace.Featured_Sightseeing_Spots_Boards.InfoBoard_13_TsukijiOuterMarket を動的に参照。
-- **感知ロジック (距離および前方判定)**: 
-  * ログインしている各プレイヤー自身のキャラクター（HumanoidRootPart）と InfoBoard_13_TsukijiOuterMarket の距離を RunService.Heartbeat で監視し、**40 studs** 以内かつ看板の正面方向であることを検知。
-  * 看板の正面方向ベクトル（-boardPivot.LookVector）とプレイヤー位置との水平方向（XZ平面）の内積（Dot Product）を算出し、隣の看板への誤反応を防ぐ厳め（threshold > 0.9）の視野角制限を適用。
-  * 近接時の救済措置として、看板から **15 studs 以内** に近づいた場合は角度に関わらず正面にいるとみなし、微小な揺れによる予期せぬ非表示化を防止。
-- **トリガー条件**: 条件を満たしている状態（isInFront = true）で接近した際に出現シーケンスを開始し、条件外へ離れた場合は全プロップを非表示状態にリセットする。
+### 1. Detection & Trigger Control (Combined Distance and Front-Facing Individual Evaluation)
+- **Script Placement**: Placed as a `LocalScript` under `StarterPlayer.StarterPlayerScripts`.
+- **Target Object Reference**: Dynamically references `Workspace.Featured_Sightseeing_Spots_Boards.InfoBoard_13_TsukijiOuterMarket`.
+- **Sensing Logic (Distance and Front Determination)**:
+  * Monitors the distance between each logged-in player's own character (`HumanoidRootPart`) and `InfoBoard_13_TsukijiOuterMarket` on `RunService.Heartbeat`, detecting when the player is within **40 studs** and in front of the board.
+  * Calculates the horizontal (XZ plane) dot product between the board's front direction vector (`-boardPivot.LookVector`) and the player position, applying a strict viewing-angle threshold (`threshold > 0.9`) to prevent false triggers from adjacent boards.
+  * As a close-range fallback, if a player comes within **15 studs** of the board, they are treated as being in front regardless of angle, preventing unexpected hiding caused by minor movement jitter.
+- **Trigger Condition**: Starts the appearance sequence when approaching under valid conditions (`isInFront = true`), and resets all props to a hidden state when moving outside the conditions.
 
-### 2. ポップアップアニメーション & SE再生メカニズム
-- **初期状態管理**:
-  * 通信ラグによるゲーム開始時のチラつき（瞬間表示）を防ぐため、Roblox Studio 上で全プロップのプロパティを事前に Transparency = 1（透明）かつ CanCollide = false に設定。
-  * スクリプト起動時の初期化関数 hideAllSushi() により、元サイズ・CFrame データの保持および安全網としての非表示化を実行。
-- **サウンド一括管理**: 
-  * Workspace.AudioAssets フォルダ配下にポップサウンドアセット SE_Pop_Common (SoundId: rbxassetid://100517105966579) を配置して一括管理する。
-- **浮き出るアニメーション演出 (TweenService)**:
-  * アニメーション実行中も CanCollide = false を維持し、プレイヤー移動の引っかかりを防止。
-  * 各プロップの出現時、下方向（-1.5〜-5 studs オフセット）および縮小状態（スケール 0.2）から元の位置・サイズへ Enum.EasingStyle.Back および Enum.EasingDirection.Out を用いて約 0.35 秒間で飛び出すポップアップ補間を行う。
-  * ポップアップ演出の開始と同時に SE_Pop_Common の再生位置をリセット (TimePosition = 0) して「ポンッ」という効果音を連続再生する。
+### 2. Popup Animation & SE Playback Mechanism
+- **Initial State Management**:
+  * To prevent flickering (instant appearance) at game start due to network lag, all prop properties are pre-configured in Roblox Studio with `Transparency = 1` and `CanCollide = false`.
+  * The initialization function `hideAllSushi()` executed at script startup retains original size and `CFrame` data and hides props as a safety net.
+- **Centralized Sound Management**:
+  * Places the pop sound asset `SE_Pop_Common` (`SoundId: rbxassetid://100517105966579`) under the `Workspace.AudioAssets` folder for centralized management.
+- **Pop-Up Animation Effect (`TweenService`)**:
+  * Maintains `CanCollide = false` during animation execution to prevent player movement snagging.
+  * When each prop appears, performs a popup interpolation over approximately `0.35 seconds` from a downward offset (`-1.5` to `-5 studs`) and shrunk state (`scale 0.2`) to its original position and size using `Enum.EasingStyle.Back` and `Enum.EasingDirection.Out`.
+  * Simultaneously with the start of the popup effect, resets `SE_Pop_Common` playback position (`TimePosition = 0`) to sequentially play the "pop" sound effect.
 
-### 3. 時間差出現シーケンス (Zone B 側から進行方向へ)
-Zone B 側から看板方向へ進むプレイヤーの動線に合わせて、以下の 7 ステップ（各ステップ間隔: DELAY_TIME = 0.25 秒）で時間差出現を行う。
+### 3. Staggered Appearance Sequence (From Zone B Side Along Movement Direction)
+Following the movement path of players advancing from the Zone B side toward the board, staggered appearance is executed across 7 steps (interval per step: `DELAY_TIME = 0.25 seconds`).
 
-  Step 1: 【列1 (Zone B側)】 Prop_Sushi_Toro_03 & Prop_Sushi_Tamago_03 が SE とともにポップアップ出現
-  Step 2: 【列1 (Zone B側)】 Prop_Sushi_Salmon_03 が SE とともにポップアップ出現
-  Step 3: 【列2 (中央)】 Prop_Sushi_Toro_02 & Prop_Sushi_Tamago_02 が SE とともにポップアップ出現
-  Step 4: 【列2 (中央)】 Prop_Sushi_Salmon_02 が SE とともにポップアップ出現
-  Step 5: 【列3 (看板前)】 Prop_Sushi_Toro_01 & Prop_Sushi_Tamago_01 が SE とともにポップアップ出現
-  Step 6: 【列3 (看板前)】 Prop_Sushi_Salmon_01 が SE とともにポップアップ出現
-  Step 7: 【上方 (看板上)】 Prop_Sushi_Toro_04 & Prop_Sushi_Tamago_04 & Prop_Sushi_Salmon_04 が SE とともに同時ポップアップ出現
+    Step 1: [Row 1 (Zone B side)] Prop_Sushi_Toro_03 & Prop_Sushi_Tamago_03 pop up with SE
+    Step 2: [Row 1 (Zone B side)] Prop_Sushi_Salmon_03 pops up with SE
+    Step 3: [Row 2 (Center)] Prop_Sushi_Toro_02 & Prop_Sushi_Tamago_02 pop up with SE
+    Step 4: [Row 2 (Center)] Prop_Sushi_Salmon_02 pops up with SE
+    Step 5: [Row 3 (In front of board)] Prop_Sushi_Toro_01 & Prop_Sushi_Tamago_01 pop up with SE
+    Step 6: [Row 3 (In front of board)] Prop_Sushi_Salmon_01 pops up with SE
+    Step 7: [Upper (Above board)] Prop_Sushi_Toro_04 & Prop_Sushi_Tamago_04 & Prop_Sushi_Salmon_04 pop up simultaneously with SE
 
 ## 📂 Service & Workspace Hierarchy Integration
 
-築地エリアの全オブジェクト、クライアントスクリプト、およびサウンドアセットは、以下の階層構造に従って整理・格納する。
+All objects, client scripts, and sound assets in the Tsukiji area are organized and stored according to the following hierarchy.
 
     Workspace
-    ├── 🏛️ Featured_Sightseeing_Spots_Boards
-    │   └── 🖼️ InfoBoard_13_TsukijiOuterMarket
-    ├── 📦 Props
-    │   └── 📁 TsukijiArea
+    ├── Featured_Sightseeing_Spots_Boards
+    │   └── InfoBoard_13_TsukijiOuterMarket
+    ├── Props
+    │   └── TsukijiArea
     │       ├── Prop_Sushi_Toro_01
     │       ├── Prop_Sushi_Toro_02
     │       ├── Prop_Sushi_Toro_03
@@ -129,17 +129,17 @@ Zone B 側から看板方向へ進むプレイヤーの動線に合わせて、�
     │       ├── Prop_Sushi_Salmon_02
     │       ├── Prop_Sushi_Salmon_03
     │       └── Prop_Sushi_Salmon_04
-    └── 🔊 AudioAssets
-        └── 🎵 SE_Pop_Common (Sound)
+    └── AudioAssets
+        └── SE_Pop_Common (Sound)
 
     StarterPlayer
-    └── 📁 StarterPlayerScripts
-        └── 📜 Tsukiji_PropController (LocalScript)
+    └── StarterPlayerScripts
+        └── Tsukiji_PropController (LocalScript)
 
 ## 🔗 Related Documentation & Links
 
-- メインインデックス: ../index.md
-- 全体オブジェクト配置計画: ../object-deployment-plan.md
-- 空間座標・寸法計算仕様書: ./room-spatial-dimension-spec.md
-- 主要観光スポット案内板仕様書: ./info-board-featured-spots.md
-- ワークスペース階層仕様書: ./workspace-hierarchy.md
+- Main Index: `../index.md`
+- Overall Object Deployment Plan: `../object-deployment-plan.md`
+- Spatial Coordinates & Dimension Calculation Spec: `./room-spatial-dimension-spec.md`
+- Featured Sightseeing Spots Info Board Spec: `./info-board-featured-spots.md`
+- Workspace Hierarchy Spec: `./workspace-hierarchy.md`
